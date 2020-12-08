@@ -1,0 +1,17 @@
+<h2>add mark <%=@record.tittle%></h2>
+
+<%= form_for :pages, url: pages_update_path(:report_id => @record.id) do |f| %>
+    <span>Mark: </span>
+    <% if (@mrk != nil && @mrk.errors.any?) %>
+    <div id="error_explanation">
+        <p><%=@mrk.errors[:points]%></p>
+    </div>
+    <% end %>
+    <%= f.text_field :points %></br></br>
+    <div><%= f.submit %></div>
+<% end %>
+
+<%= link_to home_path do%>
+<%= button_tag('Home', type: 'button')%>
+<%end%>
+
