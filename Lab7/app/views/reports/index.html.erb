@@ -1,0 +1,26 @@
+<h2>Labs reports</h2>
+<%= link_to crt_path do%>
+<%= button_tag('Add report', type: 'button')%>
+<%end%>
+
+<% @report.each do |report| %>
+    <div><%= report.tittle%></div>
+    <div><%= report.description%></div>
+    
+    <%if report.marks.first%>
+    <div><span>Mark:&nbsp</span><%= report.marks.first.letter%><span>&nbsp(<%= report.marks.first.points%>)</div>
+    
+    <%else%>
+     <div>
+        <%= link_to add_mark_path(:report_id => report) do%>
+        <%= button_tag('Add mark', type: 'button')%>
+        <%end%>
+    </div>
+    <%end%>
+   
+     <div>
+        <%= link_to delete_path(:report_id => report) do%>
+        <%= button_tag('Remove', type: 'button')%>
+        <%end%>
+    </div>
+<% end %>

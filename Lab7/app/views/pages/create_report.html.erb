@@ -1,0 +1,24 @@
+<h2>Добавление отчета</h2>
+<%= form_for :reports, url: reports_path do |f| %>
+    <div>
+        <p>Название отчета</p>
+        <% if (@report != nil && @report.errors[:tittle].any?) %>
+         <div id="error_explanation">
+            <p><%=@report.errors[:tittle]%></p>
+        </div>
+        <% end %>
+        <%= f.text_field :tittle %> 
+        <p>Содержимое отчета</p>
+         <% if (@report != nil && @report.errors[:description].any?) %>
+         <div id="error_explanation">
+            <p><%=@report.errors[:description]%></p>
+        </div>
+        <% end %>
+        <%= f.text_area :description %>
+        <div><%= f.submit %></div>
+    </div>
+<% end %>
+
+<%= link_to home_path do%>
+<%= button_tag('Home', type: 'button')%>
+<%end%>

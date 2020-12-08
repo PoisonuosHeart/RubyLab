@@ -1,0 +1,17 @@
+<h2>Labs reports</h2>
+
+<% @reports.each do |report| %>
+    <div><%= report.title%></div>
+    <div><%= report.body_report%></div>
+    <div><%= report.mark%></div>
+    <div>
+        <%= link_to add_mark_path(:report_id => report) do%>
+        <%= button_tag('Add mark', type: 'button')%>
+        <%end%>
+    </div>
+     <div>
+        <%= link_to delete_path(:report_id => report) do%>
+        <%= button_tag('Remove', type: 'button')%>
+        <%end%>
+    </div>
+<% end %>
